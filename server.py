@@ -20,6 +20,7 @@ pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.2, auto_write=Fal
 # Define brightness, red, green and blue variables
 brightness, red, green, blue = 0.2, 0, 0, 0
 color_step = 5
+brightness_step = 0.05
 
 # Create a Flask app
 app = Flask(__name__)
@@ -55,9 +56,11 @@ def apply_command(command_received):
     var = command_received[1]
     if var == 'l': #brightness
         if direction == 'up':
-            brightness += 0.1
+            brightness += brightness_step
         elif direction == 'down':
-            brightness -= 0.1
+            brightness -= brightness_step
+        # Make sure that the values are between 0 and 1
+        brightness = max(0, min(1, brightness))
     else: #color
         if direction == 'up':
             if var == 'r':
