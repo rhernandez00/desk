@@ -6,6 +6,8 @@
 
 # Imports
 from flask import Flask, request
+import signal
+import sys
 import neopixel
 import board
 
@@ -36,6 +38,15 @@ def command():
         apply_command(command_received)
 
     return 'Command received', 200
+
+def signal_handler(sig, frame): # function to handle shutdown
+    print("quit received, closing down app")
+    # turn off the pixels
+    pixels.fill((0, 0, 0))
+    pixels.brightness = 0
+    pixels.show()
+
+    sys.exit(0)
 
 def apply_command(command_received):
     global brightness, red, green, blue
@@ -73,4 +84,6 @@ def apply_command(command_received):
 
 # Run the app
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
     app.run(host='0.0.0.0', port=5000)
