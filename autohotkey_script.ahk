@@ -65,3 +65,23 @@ return
 ^!+h::
     SendCommand("down_b") ; Call the SendCommand
 return
+
+; Command for hotkey combination: Control + Alt + Shift + g, max_l
+^!+i::
+    SendCommand("max_l") ; Call the SendCommand
+return
+
+; Command for hotkey combination: Control + Alt + Shift + i, max_r
+^!+j::
+    SendCommand("max_r") ; Call the SendCommand
+return
+
+; Command for hotkey combination: Control + Alt + Shift + j, max_g
+^!+k::
+    SendCommand("max_g") ; Call the SendCommand
+return
+
+; Command for hotkey combination: Control + Alt + Shift + k, max_b
+^!+l::
+    SendCommand("max_b") ; Call the SendCommand
+return

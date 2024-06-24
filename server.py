@@ -59,6 +59,11 @@ def apply_command(command_received):
             brightness += brightness_step
         elif direction == 'down':
             brightness -= brightness_step
+        elif direction == 'max':
+            if brightness < 0.5:
+                brightness = 0.0
+            else:
+                brightness = 1
         # Make sure that the values are between 0 and 1
         brightness = max(0, min(1, brightness))
     else: #color
@@ -76,6 +81,22 @@ def apply_command(command_received):
                 green -= color_step
             elif var == 'b':
                 blue -= color_step
+        elif direction == 'max':
+            if var == 'r':
+                if red < 128:
+                    red = 255
+                else:
+                    red = 0
+            elif var == 'g':
+                if green < 128:
+                    green = 255
+                else:
+                    green = 0
+            elif var == 'b':
+                if blue < 128:
+                    blue = 255
+                else:
+                    blue = 0
         # Make sure that the values are between 0 and 255
         red = max(0, min(255, red))
         green = max(0, min(255, green))
