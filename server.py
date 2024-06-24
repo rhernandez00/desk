@@ -64,9 +64,9 @@ def apply_command(command_received):
         elif direction == 'max':
             print('hit max')
             if brightness < 0.5:
-                brightness = 0.0
+                brightness = 1.0
             else:
-                brightness = 1
+                brightness = 0.0
         # Make sure that the values are between 0 and 1
         brightness = max(0, min(1, brightness))
     else: #color
