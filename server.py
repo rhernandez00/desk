@@ -54,12 +54,15 @@ def apply_command(command_received):
     # Get the command and the var
     direction = command_received[0]
     var = command_received[1]
+    print(f"direction: {direction}, var: {var}")
+S
     if var == 'l': #brightness
         if direction == 'up':
             brightness += brightness_step
         elif direction == 'down':
             brightness -= brightness_step
         elif direction == 'max':
+
             if brightness < 0.5:
                 brightness = 0.0
             else:
