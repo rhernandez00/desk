@@ -102,7 +102,8 @@ def apply_command(command_received):
         red = max(0, min(255, red))
         green = max(0, min(255, green))
         blue = max(0, min(255, blue))
-    # update the pixels    print(f"brightness: {brightness}, red: {red}, green: {green}, blue: {blue}")
+    # update the pixels    
+    print(f"brightness: {brightness}, red: {red}, green: {green}, blue: {blue}")
     print("command_received: ", command_received)
     pixels.fill((green, red, blue)) # for some reason the order is green, red, blue
     pixels.brightness = brightness
