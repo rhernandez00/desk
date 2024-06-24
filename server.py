@@ -97,6 +97,7 @@ def apply_command(command_received):
                     blue = 255
                 else:
                     blue = 0
+                    
         # Make sure that the values are between 0 and 255
         red = max(0, min(255, red))
         green = max(0, min(255, green))
