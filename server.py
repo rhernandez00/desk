@@ -105,6 +105,7 @@ def apply_command(command_received):
         red = max(0, min(255, red))
         green = max(0, min(255, green))
         blue = max(0, min(255, blue))
+        brightness = max(0, min(1, brightness))
     # update the pixels    
     print(f"brightness: {brightness}, red: {red}, green: {green}, blue: {blue}")
     print("command_received: ", command_received)
