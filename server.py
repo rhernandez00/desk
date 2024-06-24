@@ -62,7 +62,7 @@ def apply_command(command_received):
         elif direction == 'down':
             brightness -= brightness_step
         elif direction == 'max':
-
+            print('hit max')
             if brightness < 0.5:
                 brightness = 0.0
             else:
